@@ -3,23 +3,15 @@ package com.esprit.examen.entities;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
 @Getter
 @Setter
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class Facture implements Serializable {
@@ -35,12 +27,12 @@ public class Facture implements Serializable {
 	@Temporal(TemporalType.DATE)
 	private Date dateDerniereModificationFacture;
 	private Boolean archivee;
-	@OneToMany(mappedBy = "facture")
+	@OneToMany(mappedBy = "facture", cascade = CascadeType.ALL)
 	private Set<DetailFacture> detailsFacture;
     @ManyToOne
     @JsonIgnore
     private Fournisseur fournisseur;
-    @OneToMany(mappedBy="facture")
+    @OneToMany(mappedBy="facture" )
     @JsonIgnore
     private Set<Reglement> reglements;
 

@@ -47,7 +47,7 @@ public class FactureServiceImpl implements IFactureService {
 
 	
 	public Facture addFacture(Facture f) {
-		return factureRepository.save(f);
+		return factureRepository.save(addDetailsFacture(f,f.getDetailsFacture()));
 	}
 
 	/*
@@ -71,6 +71,7 @@ public class FactureServiceImpl implements IFactureService {
 			montantFacture = montantFacture + prixTotalDetailRemise;
 			//Calculer le montant remise pour la facture
 			montantRemise = montantRemise + montantRemiseDetail;
+			detail.setFacture(f);
 			detailFactureRepository.save(detail);
 		}
 		f.setMontantFacture(montantFacture);
