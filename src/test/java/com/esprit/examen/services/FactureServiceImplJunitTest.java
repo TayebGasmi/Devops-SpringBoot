@@ -22,7 +22,7 @@ import java.text.SimpleDateFormat;
 @ExtendWith(SpringExtension.class)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @SpringBootTest
-public class FactureServiceImplTest {
+ class FactureServiceImplJunitTest {
 
     @Autowired
     IProduitService iProduitService;
@@ -81,6 +81,7 @@ public class FactureServiceImplTest {
             }
         };
         Facture facture = Facture.builder().archivee(true).dateCreationFacture(new Date()).detailsFacture(detailFactures).build();
+
         iFactureService.addFacture(facture);
         assertNotNull(facture.getIdFacture());
         assertEquals(5, facture.getDetailsFacture().size());

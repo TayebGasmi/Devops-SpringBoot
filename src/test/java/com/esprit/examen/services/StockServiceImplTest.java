@@ -1,4 +1,3 @@
-/*
 package com.esprit.examen.services;
 
 
@@ -55,4 +54,4 @@ public class StockServiceImplTest {
 		assertNull(stockService.retrieveStock(savedStock.getIdStock()));
 	}
 
-}*/
+}

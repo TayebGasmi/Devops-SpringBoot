@@ -30,7 +30,6 @@ public class Operateur implements Serializable{
 	
 	private String password;
 	@OneToMany
-	@JsonIgnore
 	private Set<Facture> factures;
 	
 }
