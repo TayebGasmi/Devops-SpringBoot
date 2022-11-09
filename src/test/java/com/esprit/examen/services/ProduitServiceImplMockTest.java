@@ -4,6 +4,7 @@ import com.esprit.examen.entities.Produit;
 import com.esprit.examen.entities.Stock;
 import com.esprit.examen.repositories.ProduitRepository;
 import com.esprit.examen.repositories.StockRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -21,6 +22,7 @@ import static org.mockito.Mockito.verify;
 
 @ExtendWith(MockitoExtension.class)
 @SpringBootTest
+@Slf4j
 public class ProduitServiceImplMockTest {
     @Mock
     ProduitRepository produitRepository;
@@ -43,5 +45,6 @@ public class ProduitServiceImplMockTest {
         assertEquals(produit1.getStock(), stock);
         verify(produitRepository, times(1)).save(Mockito.any(Produit.class));
         verify(produitRepository, times(2)).findById(Mockito.anyLong());
+        log.info("assignProduitToStock test passed");
     }
 }

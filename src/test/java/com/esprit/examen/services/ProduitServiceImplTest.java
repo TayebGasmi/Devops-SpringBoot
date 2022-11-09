@@ -60,6 +60,7 @@ public class ProduitServiceImplTest {
         });
         savedCategories = categorieProduitService.retrieveAllCategorieProduits();
         assertEquals(savedCategories.size(), categories.size());
+        log.info("save categorie test passed");
     }
 
 
@@ -96,6 +97,7 @@ public class ProduitServiceImplTest {
             assertNull(produitService.retrieveProduit(produit.getIdProduit()));
         }
         assertEquals(0, produitService.retrieveAllProduits().size());
+        log.info("product deleted successfully");
     }
     @Test
     @Order(4)
@@ -106,6 +108,7 @@ public class ProduitServiceImplTest {
             assertNull(categorieProduitService.retrieveCategorieProduit(categorie.getIdCategorieProduit()));
         }
         assertEquals(0, categorieProduitService.retrieveAllCategorieProduits().size());
+        log.info("category deleted successfully");
     }
 
 }
