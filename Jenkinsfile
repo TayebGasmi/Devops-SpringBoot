@@ -1,9 +1,9 @@
 pipeline {
     agent any
     environment{
-    sonarqube.login= '4f1b8dd395e6e44a81bfbbce3c415c7b0a5bc34e'
-    sonar.key = 'devops'
-    sonar.url = 'http://192.168.1.14:9000'
+    SONAR_LOGIN= '4f1b8dd395e6e44a81bfbbce3c415c7b0a5bc34e'
+    SONAR_KEY = 'devops'
+    SONAR_URL = 'http://192.168.1.14:9000'
     }
     stages {
         stage('clean') {
