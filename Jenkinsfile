@@ -14,11 +14,11 @@ pipeline {
                 echo 'building'
             }
         }
-       stage('pwd') {
-                steps {
-                    sh 'pwd'
-                    echo 'testing'
-                }
+        stage('test') {
+            steps {
+                sh 'mvn test'
+                echo 'testing'
             }
+        }
     }
 }
