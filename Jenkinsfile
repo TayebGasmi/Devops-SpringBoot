@@ -6,7 +6,7 @@ pipeline {
     SONAR_URL = 'http://192.168.1.14:9000'
     }
     stages {
-        stage('clean') {
+        /*stage('clean') {
             steps {
                 sh 'mvn clean'
                 echo 'cleaning'
@@ -23,7 +23,7 @@ pipeline {
                 sh 'mvn test'
                 echo 'testing'
             }
-        }
+        }*/
         stage('sonar') {
             steps {
                 sh 'mvn sonar:sonar -Dsonar.host.url=${sonar.url} -Dsonar.login=${sonarqube.login} -Dsonar.projectKey=${sonar.key}'
