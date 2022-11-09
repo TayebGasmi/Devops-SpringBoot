@@ -26,7 +26,7 @@ pipeline {
         }
         stage('sonar') {
             steps {
-                sh 'mvn sonar:sonar -Dsonar.host.url=$sonar.url -Dsonar.login=$sonarqube.login -Dsonar.projectKey=$sonar.key'
+                sh 'mvn sonar:sonar -Dsonar.host.url=${sonar.url} -Dsonar.login=${sonarqube.login} -Dsonar.projectKey=${sonar.key}'
                 echo 'sonar'
             }
         }
