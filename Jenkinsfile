@@ -14,6 +14,11 @@ pipeline {
                 echo 'building'
             }
         }
-
+       stage('pwd') {
+                steps {
+                    sh 'pwd'
+                    echo 'testing'
+                }
+            }
     }
 }
