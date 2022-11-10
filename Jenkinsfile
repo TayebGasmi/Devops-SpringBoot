@@ -6,7 +6,7 @@ pipeline {
     SONAR_URL = 'http://192.168.1.14:9000'
     }
     stages {
-       /* stage('clean') {
+        stage('clean') {
             steps {
                 sh 'mvn clean'
                 echo 'cleaning'
@@ -29,7 +29,7 @@ pipeline {
                 sh 'mvn sonar:sonar -Dsonar.host.url=$SONAR_URL -Dsonar.login=$SONAR_LOGIN -Dsonar.projectKey=$SONAR_KEY'
                 echo 'sonar'
             }
-        }*/
+        }
          /*stage('Publish to Nexus') {
                      steps {
                          script {
@@ -44,5 +44,30 @@ pipeline {
             steps {
                 script {
                     sh 'docker build -t tayeb99/devops .'
-    }
+                    }
+                    }
+             }
+           stage('Docker login') {
+                                 steps {
+                                     script {
+
+                                         sh 'docker login -u tayeb -p Tayeb@1999 '}
+                                 }
+                                 }
+                           stage('Pushing Docker Image') {
+                                 steps {
+                                     script {
+
+                                      sh 'docker push tayeb99/devops'
+                                     }
+                                 }
+                           }
+                           stage('Run Spring && MySQL Containers') {
+                                 steps {
+                                     script {
+                                       sh 'docker-compose up -d'
+                                     }
+                                 }
+                             }
+}
 }
