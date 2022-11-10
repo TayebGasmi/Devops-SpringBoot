@@ -1,4 +1,4 @@
-FROM openjdk:18
+FROM openjdk:slim
 ADD target/tpAchatProject-1.0.jar tpAchatProject
 EXPOSE 8089:8089
 ENTRYPOINT ["java","-jar","tpAchatProject"]
