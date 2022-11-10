@@ -14,12 +14,6 @@ pipeline {
                 echo 'cleaning'
             }
         }
-        stage('build') {
-            steps {
-                sh 'mvn package -DskipTests'
-                echo 'building'
-            }
-        }
         stage('test') {
             steps {
                 sh 'mvn test'
@@ -32,6 +26,12 @@ pipeline {
                 echo 'sonar'
             }
         }
+        stage('build') {
+                    steps {
+                        sh 'mvn package -DskipTests'
+                        echo 'building'
+                    }
+                }
          stage('Publish to Nexus') {
                      steps {
                          script {
@@ -69,6 +69,6 @@ pipeline {
 
                    echo 'Run Spring && MySQL Containers'
                         }
-                             }
+                    }
 }
 }
