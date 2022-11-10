@@ -12,7 +12,7 @@ pipeline {
                 echo 'cleaning'
             }
         }
-      /*  stage('build') {
+        stage('build') {
             steps {
                 sh 'mvn package -DskipTests'
                 echo 'building'
@@ -23,7 +23,7 @@ pipeline {
                 sh 'mvn test'
                 echo 'testing'
             }
-        }
+        }/*
         stage('sonar') {
             steps {
                 sh 'mvn sonar:sonar -Dsonar.host.url=$SONAR_URL -Dsonar.login=$SONAR_LOGIN -Dsonar.projectKey=$SONAR_KEY'
@@ -61,13 +61,13 @@ pipeline {
                                       sh 'docker push tayeb99/devops'
                                      }
                                  }
-                           }*/
+                           }
                            stage('Run Spring && MySQL Containers') {
                                  steps {
                                      script {
                                        sh 'docker-compose up -d'
                                      }
                                  }
-                             }
+                             }*/
 }
 }
