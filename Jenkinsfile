@@ -36,6 +36,7 @@ pipeline {
                      steps {
                          script {
                                 sh 'mvn deploy -e -DskipTests'
+                                echo 'Publish to Nexus'
 
                      }
                  }
