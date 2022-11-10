@@ -12,13 +12,13 @@ pipeline {
                 echo 'cleaning'
             }
         }
-        stage('build') {
+      /*  stage('build') {
             steps {
                 sh 'mvn package -DskipTests'
                 echo 'building'
             }
         }
-        /*stage('test') {
+        stage('test') {
             steps {
                 sh 'mvn test'
                 echo 'testing'
@@ -40,7 +40,7 @@ pipeline {
                          }
                      }
                  }*/
-          stage('build docker image') {
+         /* stage('build docker image') {
             steps {
                 script {
                     sh 'docker build -t tayeb99/devops .'
@@ -61,7 +61,7 @@ pipeline {
                                       sh 'docker push tayeb99/devops'
                                      }
                                  }
-                           }
+                           }*/
                            stage('Run Spring && MySQL Containers') {
                                  steps {
                                      script {
