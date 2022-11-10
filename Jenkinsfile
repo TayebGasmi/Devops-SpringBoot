@@ -50,26 +50,25 @@ pipeline {
                     }
              }
            stage('Docker login') {
-                                 steps {
-                                     script {
+                steps {
+                    sh 'docker login -u $DOCKER_LOGIN -p $DOCKER_PASSWORD'
+                    echo 'Docker login'
 
-                                         sh 'docker login -u $DOCKER_LOGIN -p $DOCKER_PASSWORD'
-                                 }
-                                 }
-                           stage('Pushing Docker Image') {
-                                 steps {
-                                     script {
+                     }
+                    }
+           stage('Pushing Docker Image') {
+                steps {
+                      sh 'docker push tayeb99/devops'
+                       echo 'Pushing Docker Image'
+                       }
+                     }
+           stage('Run Spring && MySQL Containers') {
+                 steps {
 
-                                      sh 'docker push tayeb99/devops'
-                                     }
-                                 }
-                           }
-                           stage('Run Spring && MySQL Containers') {
-                                 steps {
-                                     script {
-                                       sh 'docker-compose up -d'
-                                     }
-                                 }
+                   sh 'docker-compose up -d'
+
+                   echo 'Run Spring && MySQL Containers'
+                        }
                              }
 }
 }

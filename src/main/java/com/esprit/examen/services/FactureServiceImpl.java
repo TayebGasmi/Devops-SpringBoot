@@ -1,23 +1,13 @@
 package com.esprit.examen.services;
 
-import java.util.*;
+import com.esprit.examen.entities.*;
+import com.esprit.examen.repositories.*;
+import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-
-import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import com.esprit.examen.entities.DetailFacture;
-import com.esprit.examen.entities.Facture;
-import com.esprit.examen.entities.Fournisseur;
-import com.esprit.examen.entities.Operateur;
-import com.esprit.examen.entities.Produit;
-import com.esprit.examen.repositories.DetailFactureRepository;
-import com.esprit.examen.repositories.FactureRepository;
-import com.esprit.examen.repositories.FournisseurRepository;
-import com.esprit.examen.repositories.OperateurRepository;
-import com.esprit.examen.repositories.ProduitRepository;
-import lombok.extern.slf4j.Slf4j;
+import java.util.*;
 
 @SuppressWarnings("ALL")
 @Service

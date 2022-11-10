@@ -1,17 +1,14 @@
 package com.esprit.examen.controllers;
 
-import java.util.Date;
-import java.util.List;
-
-import com.esprit.examen.entities.Facture;
+import com.esprit.examen.entities.Reglement;
+import com.esprit.examen.services.IReglementService;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
-import com.esprit.examen.entities.Reglement;
-import com.esprit.examen.services.IReglementService;
-
-import io.swagger.annotations.Api;
+import java.util.Date;
+import java.util.List;
 
 @RestController
 @Api(tags = "Gestion des reglements")
@@ -30,6 +27,7 @@ public class ReglementRestController {
         Reglement reglement = reglementService.addReglement(r);
         return reglement;
     }
+
     @GetMapping("/retrieve-all-reglements")
     @ResponseBody
     public List<Reglement> getReglement() {

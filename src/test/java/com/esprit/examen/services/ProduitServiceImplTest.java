@@ -87,7 +87,6 @@ public class ProduitServiceImplTest {
     }
 
 
-
     @Test
     @Order(3)
     public void deleteProduit() {
@@ -99,6 +98,7 @@ public class ProduitServiceImplTest {
         assertEquals(0, produitService.retrieveAllProduits().size());
         log.info("product deleted successfully");
     }
+
     @Test
     @Order(4)
     public void deleteCategorieProduit() {

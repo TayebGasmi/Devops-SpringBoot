@@ -10,8 +10,8 @@ services:
     ports:
       - 3309:3306
     environment:
-        MYSQL_DATABASE: tpachato
-        MYSQL_ROOT_PASSWORD: Tayeb@99
+      MYSQL_DATABASE: tpachato
+      MYSQL_ROOT_PASSWORD: Tayeb@99
   app:
     depends_on:
       - mysqldb
