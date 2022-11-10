@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment{
-    SONAR_LOGIN= '4f1b8dd395e6e44a81bfbbce3c415c7b0a5bc34e'
+    SONAR_LOGIN= '976e886814457ad6082e408f8cb796908686eafe'
     SONAR_KEY = 'devops'
     SONAR_URL = 'http://192.168.1.14:9000'
     DOCKER_LOGIN = 'tayeb99'
