@@ -30,7 +30,7 @@ pipeline {
                 echo 'sonar'
             }
         }*/
-         stage('Publish to Nexus') {
+         /*stage('Publish to Nexus') {
                      steps {
                          script {
 
@@ -39,6 +39,10 @@ pipeline {
 
                          }
                      }
-                 }
+                 }*/
+          stage('build docker image') {
+            steps {
+                script {
+                    sh 'docker build -t tayeb99/devops .'
     }
 }
