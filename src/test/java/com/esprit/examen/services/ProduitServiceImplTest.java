@@ -22,7 +22,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @SpringBootTest
 @Slf4j
-public class ProduitServiceImplTest {
+class ProduitServiceImplTest {
 
     static List<CategorieProduit> savedCategories = new ArrayList<CategorieProduit>();
     static List<Produit> savedProduits = new ArrayList<Produit>();
@@ -49,7 +49,7 @@ public class ProduitServiceImplTest {
 
     @Order(1)
     @Test
-    public void addCategorieProduit() {
+    void addCategorieProduit() {
         categories.forEach(categorie -> {
             CategorieProduit savedCategorie = categorieProduitService.addCategorieProduit(categorie);
             assertAll("add category",
@@ -66,8 +66,7 @@ public class ProduitServiceImplTest {
 
     @Test
     @Order(2)
-
-    public void addProduit() {
+    void addProduit() {
         CategorieProduit categorieProduit = savedCategories.get(0);
         produits.forEach(produit -> {
             produit.setCategorieProduit(categorieProduit);
@@ -89,7 +88,7 @@ public class ProduitServiceImplTest {
 
     @Test
     @Order(3)
-    public void deleteProduit() {
+    void deleteProduit() {
         savedProduits = produitService.retrieveAllProduits();
         for (Produit produit : savedProduits) {
             produitService.deleteProduit(produit.getIdProduit());
@@ -101,7 +100,7 @@ public class ProduitServiceImplTest {
 
     @Test
     @Order(4)
-    public void deleteCategorieProduit() {
+    void deleteCategorieProduit() {
         savedCategories = categorieProduitService.retrieveAllCategorieProduits();
         for (CategorieProduit categorie : savedCategories) {
             categorieProduitService.deleteCategorieProduit(categorie.getIdCategorieProduit());

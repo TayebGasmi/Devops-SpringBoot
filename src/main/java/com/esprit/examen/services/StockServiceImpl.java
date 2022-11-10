@@ -20,36 +20,25 @@ public class StockServiceImpl implements IStockService {
 
     @Override
     public List<Stock> retrieveAllStocks() {
-        // récuperer la date à l'instant t1
-        log.info("In method retrieveAllStocks");
-        List<Stock> stocks = (List<Stock>) stockRepository.findAll();
-        for (Stock stock : stocks) {
-            log.info(" Stock : " + stock);
-        }
-        log.info("out of method retrieveAllStocks");
-        // récuperer la date à l'instant t2
-        // temps execution = t2 - t1
-        return stocks;
+
+        return stockRepository.findAll();
     }
 
     @Override
     public Stock addStock(Stock s) {
-        // récuperer la date à l'instant t1
-        log.info("In method addStock");
         return stockRepository.save(s);
 
     }
 
     @Override
     public void deleteStock(Long stockId) {
-        log.info("In method deleteStock");
+
         stockRepository.deleteById(stockId);
 
     }
 
     @Override
     public Stock updateStock(Stock s) {
-        log.info("In method updateStock");
         return stockRepository.save(s);
     }
 
@@ -72,7 +61,7 @@ public class StockServiceImpl implements IStockService {
         String msgDate = sdf.format(now);
         String finalMessage = "";
         String newLine = System.getProperty("line.separator");
-        List<Stock> stocksEnRouge = (List<Stock>) stockRepository.retrieveStatusStock();
+        List<Stock> stocksEnRouge = stockRepository.retrieveStatusStock();
         for (int i = 0; i < stocksEnRouge.size(); i++) {
             finalMessage = newLine + finalMessage + msgDate + newLine + ": le stock "
                     + stocksEnRouge.get(i).getLibelleStock() + " a une quantité de " + stocksEnRouge.get(i).getQte()
