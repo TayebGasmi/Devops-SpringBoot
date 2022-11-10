@@ -18,7 +18,7 @@ pipeline {
                 echo 'building'
             }
         }
-        stage('test') {
+        /*stage('test') {
             steps {
                 sh 'mvn test'
                 echo 'testing'
@@ -30,7 +30,7 @@ pipeline {
                 echo 'sonar'
             }
         }
-         /*stage('Publish to Nexus') {
+         stage('Publish to Nexus') {
                      steps {
                          script {
 
