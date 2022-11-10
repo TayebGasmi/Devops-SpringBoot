@@ -51,7 +51,7 @@ pipeline {
                                  steps {
                                      script {
 
-                                         sh 'docker login -u tayeb -p Tayeb@1999 '}
+                                         sh 'docker login -u tayeb99 -p Tayeb@1999 '}
                                  }
                                  }
                            stage('Pushing Docker Image') {
