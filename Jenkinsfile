@@ -35,11 +35,8 @@ pipeline {
          stage('Publish to Nexus') {
                      steps {
                          script {
+                                sh 'mvn deploy -e -DskipTests'
 
-         configFileProvider([configFile(fileId: 'maven-settings', variable: 'settings')]) {
-           sh 'mvn  -B -DskipTests deploy -s $settings'}
-
-                         }
                      }
                  }
          stage('build docker image') {
