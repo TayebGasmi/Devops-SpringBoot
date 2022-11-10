@@ -30,10 +30,15 @@ pipeline {
                 echo 'sonar'
             }
         }*/
-         stage('Build Docker Image') {
-              steps {
-                sh 'docker build -t tayeb99/devops-spring .'
-              }
-         }
+         stage('Publish to Nexus') {
+                     steps {
+                         script {
+
+         configFileProvider([configFile(fileId: 'maven-settings', variable: 'settings')]) {
+           sh 'mvn  -B -DskipTests deploy -s $settings'}
+
+                         }
+                     }
+                 }
     }
 }
