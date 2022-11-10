@@ -44,6 +44,7 @@ pipeline {
             steps {
                 script {
                     sh 'docker build -t tayeb99/devops .'
+                    echo 'build docker image'
                     }
                     }
              }
