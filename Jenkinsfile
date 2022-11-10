@@ -4,6 +4,8 @@ pipeline {
     SONAR_LOGIN= '4f1b8dd395e6e44a81bfbbce3c415c7b0a5bc34e'
     SONAR_KEY = 'devops'
     SONAR_URL = 'http://192.168.1.14:9000'
+    DOCKER_LOGIN = 'tayeb99'
+    DOCKER_PASSWORD = 'Tayeb@1999'
     }
     stages {
         stage('clean') {
@@ -23,7 +25,7 @@ pipeline {
                 sh 'mvn test'
                 echo 'testing'
             }
-        }/*
+        }
         stage('sonar') {
             steps {
                 sh 'mvn sonar:sonar -Dsonar.host.url=$SONAR_URL -Dsonar.login=$SONAR_LOGIN -Dsonar.projectKey=$SONAR_KEY'
@@ -39,8 +41,8 @@ pipeline {
 
                          }
                      }
-                 }*/
-         /* stage('build docker image') {
+                 }
+         stage('build docker image') {
             steps {
                 script {
                     sh 'docker build -t tayeb99/devops .'
@@ -51,7 +53,7 @@ pipeline {
                                  steps {
                                      script {
 
-                                         sh 'docker login -u tayeb99 -p Tayeb@1999 '}
+                                         sh 'docker login -u $DOCKER_LOGIN -p $DOCKER_PASSWORD'
                                  }
                                  }
                            stage('Pushing Docker Image') {
@@ -68,6 +70,6 @@ pipeline {
                                        sh 'docker-compose up -d'
                                      }
                                  }
-                             }*/
+                             }
 }
 }
