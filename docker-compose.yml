@@ -2,16 +2,26 @@ version: "3"
 
 services:
   mysqldb:
+    container_name: mysqlCICD
     image: mysql
     restart: always
     volumes:
       - db:/var/lib/mysql
+    ports:
+      - 3309:3306
+    environment:
+        MYSQL_DATABASE: tpachato
+        MYSQL_ROOT_PASSWORD: Tayeb@99
   app:
     depends_on:
       - mysqldb
     image: tayeb99/devops
     restart: always
     ports:
-      - $SPRING_LOCAL_PORT:$SPRING_DOCKER_PORT
+      - 8089:8089
+    environment:
+      MYSQL_HOST: mysqlCICD
+      MYSQL_USER: root
+      MYSQL_PASSWORD: Tayeb@99
 volumes:
   db:
