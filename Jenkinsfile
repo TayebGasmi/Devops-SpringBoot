@@ -3,7 +3,7 @@ pipeline {
     environment{
     SONAR_LOGIN= '976e886814457ad6082e408f8cb796908686eafe'
     SONAR_KEY = 'devops'
-    SONAR_URL = 'http://192.168.1.18:9000'
+    SONAR_URL = 'http://192.168.230.188:9000'
     DOCKER_LOGIN = 'tayeb99'
     DOCKER_PASSWORD = 'Tayeb@1999'
     }
