@@ -35,7 +35,7 @@ class ProduitServiceImplTest {
             add(Produit.builder().codeProduit("code1").libelleProduit("Business").prix(10).dateCreation(new Date()).build());
             add(Produit.builder().codeProduit("code2").libelleProduit("Sports").prix(50).dateCreation(new Date()).build());
             add(Produit.builder().codeProduit("code3").libelleProduit("Business").prix(20).dateCreation(new Date()).build());
-            add(Produit.builder().codeProduit("code4").libelleProduit("Sports").prix(30).dateCreation(new Date()).build());
+
 
         }
     };
@@ -89,11 +89,9 @@ class ProduitServiceImplTest {
     @Test
     @Order(3)
     void deleteProduit() {
-        savedProduits = produitService.retrieveAllProduits();
-        for (Produit produit : savedProduits) {
+        savedProduits.forEach(produit -> {
             produitService.deleteProduit(produit.getIdProduit());
-            assertNull(produitService.retrieveProduit(produit.getIdProduit()));
-        }
+        });
         assertEquals(0, produitService.retrieveAllProduits().size());
         log.info("product deleted successfully");
     }
