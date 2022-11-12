@@ -43,7 +43,6 @@ public void addOperateur() {
        Mockito.when(operateurRepository.save(Mockito.any(Operateur.class))).thenReturn(operateur);
          Operateur operateur1 = operateurService.addOperateur(operateur);
          assertAll("adOperateur",
-                 ()->assertNotNull(operateur1.getIdOperateur()),
                  () -> assertEquals(operateur1.getNom(), operateur.getNom()),
                  () -> assertEquals(operateur1.getPrenom(), operateur.getPrenom()),
                  () -> assertEquals(operateur1.getPassword(), operateur.getPassword())
